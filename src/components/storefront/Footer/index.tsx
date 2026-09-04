@@ -1,4 +1,5 @@
 "use client";
+import { DISCLAIMER_SHORT } from "@/lib/config/disclaimer";
 
 import React from "react";
 import Link from "next/link";
@@ -185,6 +186,11 @@ export function Footer({ categories = [] }: FooterProps) {
             </h3>
             <ul className="space-y-2.5 text-xs">
               <li>
+                <Link href="/disclaimer" className="transition-colors hover:text-white">
+                  Fragrance disclaimer
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy-policy" className="transition-colors hover:text-white">
                   Privacy policy
                 </Link>
@@ -215,14 +221,28 @@ export function Footer({ categories = [] }: FooterProps) {
           </nav>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-brand-ink/40 pt-8 text-xs text-brand-muted-ink sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            &copy; {new Date().getFullYear()} {theme.brand.name}. All rights reserved.
+        {/* The scent comparisons are made across the catalogue, so the
+            disclaimer sits site-wide rather than only on the policy page.
+            Colours here are set for the dark footer: the brand's action colour
+            is Vinyl Black and would be invisible, so silver carries it. */}
+        <div className="mt-12 border-t border-white/15 pt-8">
+          <p className="max-w-3xl text-[11px] leading-relaxed text-brand-accent">
+            {DISCLAIMER_SHORT}{" "}
+            <Link href="/disclaimer" className="underline transition-colors hover:text-white">
+              Read the full disclaimer
+            </Link>
+            .
           </p>
-          <p className="flex items-center gap-1.5">
-            <ShieldCheck className="h-3.5 w-3.5 text-brand-primary" />
-            Secure encrypted checkout
-          </p>
+
+          <div className="mt-6 flex flex-col gap-3 text-xs text-brand-accent sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              &copy; {new Date().getFullYear()} {theme.brand.name}. All rights reserved.
+            </p>
+            <p className="flex items-center gap-1.5">
+              <ShieldCheck className="h-3.5 w-3.5 text-brand-accent" />
+              Secure encrypted checkout
+            </p>
+          </div>
         </div>
       </div>
     </footer>

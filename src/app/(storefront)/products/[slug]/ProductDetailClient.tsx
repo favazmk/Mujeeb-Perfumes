@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
+import { DISCLAIMER_SHORT } from "@/lib/config/disclaimer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -333,6 +334,20 @@ export function ProductDetailClient({ product, stats, commerce }: ProductDetailC
 
             {product.short_description && (
               <p className="text-sm leading-relaxed text-brand-muted-ink">{product.short_description}</p>
+            )}
+
+            {/* Consumer-protection point: where a short description names a
+                designer fragrance, the qualification belongs next to the claim,
+                not only in the footer or a policy page. Rendered only for the
+                products that actually make a comparison. */}
+            {/^inspired by/i.test(product.short_description ?? "") && (
+              <p className="border-l-2 border-brand-border-strong pl-3 text-[11px] leading-relaxed text-brand-faint-ink">
+                {DISCLAIMER_SHORT}{" "}
+                <Link href="/disclaimer" className="underline hover:text-brand-ink">
+                  Full disclaimer
+                </Link>
+                .
+              </p>
             )}
 
             {/* Offers — real coupon codes the merchant has published */}
