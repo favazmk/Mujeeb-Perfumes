@@ -1,10 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 44" fill="none" role="img" aria-label="Mujeeb Perfumes">
-  <text x="0" y="26" font-family="'Cormorant Garamond', Georgia, serif" font-size="26" font-weight="600" fill="#1c1917" letter-spacing="3.5">
-    MUJEEB
-  </text>
-  <circle cx="132" cy="18" r="2.5" fill="#c9a227" />
-  <text x="144" y="26" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="500" fill="#6f675e" letter-spacing="3">
-    PERFUMES
-  </text>
-  <line x1="0" y1="36" x2="118" y2="36" stroke="#c9a227" stroke-width="1" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 92" fill="none" role="img" aria-label="Mujeeb Perfumes">
+  <!-- Brandbook 02: MUJEEB set solid, "P e r f u m e s" spaced beneath.
+       Rendered as an image, so no webfont is available - the stack falls back
+       to a geometric sans close to Alexandria. -->
+  <text x="160" y="42" text-anchor="middle"
+        font-family="Alexandria, 'Trebuchet MS', 'Segoe UI', Arial, sans-serif"
+        font-size="38" font-weight="700" fill="#0d0d0d" letter-spacing="6">MUJEEB</text>
+  <text x="160" y="70" text-anchor="middle"
+        font-family="'Space Grotesk', 'Segoe UI', Arial, sans-serif"
+        font-size="14" font-weight="400" fill="#5a5a5a" letter-spacing="9">PERFUMES</text>
 </svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 92" fill="none" role="img" aria-label="Mujeeb Perfumes">
+  <!-- Reversed lockup for dark surfaces (footer, packaging mockups). -->
+  <text x="160" y="42" text-anchor="middle"
+        font-family="Alexandria, 'Trebuchet MS', 'Segoe UI', Arial, sans-serif"
+        font-size="38" font-weight="700" fill="#ffffff" letter-spacing="6">MUJEEB</text>
+  <text x="160" y="70" text-anchor="middle"
+        font-family="'Space Grotesk', 'Segoe UI', Arial, sans-serif"
+        font-size="14" font-weight="400" fill="#b8b8b8" letter-spacing="9">PERFUMES</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Mujeeb Perfumes">
+  <!-- App/PWA icon: Vinyl Black field, Paper White monogram, Brushed Silver rule. -->
+  <rect width="512" height="512" fill="#0d0d0d"/>
+  <text x="256" y="300" text-anchor="middle"
+        font-family="Alexandria, 'Trebuchet MS', 'Segoe UI', Arial, sans-serif"
+        font-size="240" font-weight="700" fill="#ffffff">M</text>
+  <rect x="176" y="348" width="160" height="3" fill="#b8b8b8"/>
+</svg>

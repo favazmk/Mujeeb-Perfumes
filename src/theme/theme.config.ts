@@ -17,6 +17,19 @@ export interface ThemeConfig {
     logoUrl?: string;
     faviconUrl?: string;
     tagline?: string;
+    /**
+     * Optional two-line wordmark lockup for the header, when the brand's
+     * logotype is set differently from its plain name. `name` stays the
+     * canonical identity used for SEO, schema.org and page titles; this only
+     * changes how the header draws it. Omitted, the header falls back to
+     * name over tagline.
+     */
+    wordmark?: {
+      primary: string;
+      secondary?: string;
+      /** Letter-spacing for the secondary line, e.g. "0.5em". */
+      secondaryTracking?: string;
+    };
   };
   colors: {
     /** Primary action colour. One hot accent, reserved for CTAs. */
@@ -62,58 +75,64 @@ export interface ThemeConfig {
 }
 
 /**
- * Mujeeb Perfumes theme.
+ * Mujeeb Perfumes theme — per the brandbook, Edition 01.
  *
- * A fragrance house reads as luxury through restraint: warm near-black ink,
- * a single antique-gold action colour, cream section backgrounds and a
- * near-square radius. The three semantic colours (rating, discount, scarcity)
- * are kept — shoppers parse them pre-attentively — but tuned to the warm
- * palette instead of the marketplace neon defaults.
+ * The identity is deliberately monochrome: Vinyl Black #0D0D0D, Paper White,
+ * and Brushed Silver #B8B8B8 as an accent only. Black carries the brand, so
+ * the primary action colour is black rather than a hot accent, and the radius
+ * is zero — "nothing decorative left unexplained".
  *
- * Every value stays overridable by environment variable so the merchant can
- * rebrand from /admin/settings without a code change.
+ * Two documented deviations, both for legibility rather than taste:
+ *  - Secondary text uses #5a5a5a, not Brushed Silver. #B8B8B8 on white is
+ *    about 1.9:1, far below the 4.5:1 needed for small text. Silver is kept
+ *    for dividers, borders and fine print on dark, as the brandbook intends.
+ *  - Scarcity and error states use a restrained red. A storefront with no
+ *    error colour cannot tell a customer their card was declined.
  */
 export const defaultThemeConfig: ThemeConfig = {
   brand: {
     name: process.env.NEXT_PUBLIC_STORE_NAME || "Mujeeb Perfumes",
     tagline:
-      process.env.NEXT_PUBLIC_STORE_TAGLINE || "Oud, Attar & Fine Fragrance",
+      process.env.NEXT_PUBLIC_STORE_TAGLINE || "Extrait de Parfum",
     logoUrl: process.env.NEXT_PUBLIC_STORE_LOGO_URL || "/logo.svg",
-    faviconUrl: process.env.NEXT_PUBLIC_STORE_ICON_URL || "/logo.svg",
+    faviconUrl: process.env.NEXT_PUBLIC_STORE_ICON_URL || "/icon.svg",
+    // Brandbook section 02: "MUJEEB" set solid, "P e r f u m e s" spaced beneath.
+    wordmark: { primary: "MUJEEB", secondary: "Perfumes", secondaryTracking: "0.5em" },
   },
   colors: {
-    primary: process.env.NEXT_PUBLIC_BRAND_PRIMARY_COLOR || "#8a6a2f",
-    secondary: "#1c1917",
-    accent: "#c9a227",
-    ink: "#1c1917",
-    mutedInk: "#6f675e",
+    // Vinyl Black. Black carries the brand, so it is also the action colour.
+    primary: process.env.NEXT_PUBLIC_BRAND_PRIMARY_COLOR || "#0d0d0d",
+    secondary: "#0d0d0d",
+    // Brushed Silver — accent only: dividers, fine print, never a large surface.
+    accent: "#b8b8b8",
+    ink: "#0d0d0d",
+    mutedInk: "#5a5a5a",
     surface: "#ffffff",
-    subtle: "#f6f2ec",
-    muted: "#fbf8f4",
-    border: "#e7dfd3",
-    rating: "#2f6f5e",
-    discount: "#a8571e",
-    urgent: "#b03a2e",
+    subtle: "#f4f4f4",
+    muted: "#fafafa",
+    border: "#e3e3e3",
+    rating: "#0d0d0d",
+    discount: "#0d0d0d",
+    urgent: "#a33529",
   },
   typography: {
-    fontHeading: "'Cormorant Garamond', Georgia, serif",
-    fontBody: "Figtree, Inter, sans-serif",
+    fontHeading: "'Alexandria', 'Space Grotesk', sans-serif",
+    fontBody: "'Space Grotesk', sans-serif",
   },
   navigation: [
     { label: "Men", href: "/products?category=men" },
     { label: "Women", href: "/products?category=women" },
     { label: "Unisex", href: "/products?category=unisex" },
-    { label: "Attar & Oud", href: "/products?category=attar-oud" },
-    { label: "Gift Sets", href: "/products?category=gift-sets" },
-    { label: "New Arrivals", href: "/products?sort=newest" },
+    { label: "All Fragrances", href: "/products" },
   ],
   styling: {
-    borderRadius: "2px",
+    // Zero radius. The brand is built on a fixed grid and square packaging.
+    borderRadius: "0px",
     productCardVariant: "luxury",
     headerSticky: true,
     announcementBar: {
       enabled: true,
-      text: "Free delivery on orders over AED 200 · Authentic fragrances only",
+      text: "Extrait de Parfum · 50ml · Free delivery on orders over AED 200",
       link: "/products",
     },
   },

@@ -1,7 +1,7 @@
-/* Mujeeb Perfumes: Cormorant Garamond gives headings the engraved, editorial
-   feel a fragrance house needs; Figtree keeps product copy dense and legible
-   at catalogue density. */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap');
+/* Brand typefaces per the brandbook (section 04): Alexandria for the logotype
+   and headlines, Space Grotesk for body copy and fine print. Both are Google
+   Fonts, so they load here rather than being self-hosted. */
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -32,52 +32,52 @@
 :root {
   /* --- Text ------------------------------------------------------------ */
   /* Primary copy. The single most-used colour on the page. */
-  --brand-ink: #1c1917;
+  --brand-ink: #0d0d0d;
   /* Secondary copy: product names, helper text, metadata. */
-  --brand-muted-ink: #6f675e;
+  --brand-muted-ink: #5a5a5a;
   /* Tertiary: timestamps, counts, disabled labels. */
-  --brand-faint-ink: #a19889;
+  --brand-faint-ink: #8a8a8a;
 
   /* --- Brand ----------------------------------------------------------- */
   /* The one hot accent. Primary CTAs, active states, links. */
-  --brand-primary: #8a6a2f;
-  --brand-primary-hover: #6f5323;
+  --brand-primary: #0d0d0d;
+  --brand-primary-hover: #2b2b2b;
   /* Deep neutral used for secondary buttons and the footer. */
-  --brand-secondary: #1c1917;
+  --brand-secondary: #0d0d0d;
   /* Kept for backwards compatibility with existing components. */
-  --brand-accent: #c9a227;
+  --brand-accent: #b8b8b8;
 
   /* --- Semantic -------------------------------------------------------- */
   /* Ratings and "in stock". Green reads as approval before it is read at all. */
-  --brand-rating: #2f6f5e;
-  --brand-success: #2f6f5e;
+  --brand-rating: #0d0d0d;
+  --brand-success: #2e7d5b;
   /* Discount percentages and offer copy. */
-  --brand-discount: #a8571e;
+  --brand-discount: #0d0d0d;
   /* Scarcity: "Only 2 left". Distinct from discount on purpose. */
-  --brand-urgent: #b03a2e;
-  --brand-danger: #b03a2e;
+  --brand-urgent: #a33529;
+  --brand-danger: #a33529;
 
   /* --- Surfaces -------------------------------------------------------- */
   --brand-surface: #ffffff;
   /* Section backgrounds and inactive chips. */
-  --brand-subtle: #f6f2ec;
-  --brand-muted: #fbf8f4;
+  --brand-subtle: #f4f4f4;
+  --brand-muted: #fafafa;
   /* One hairline value, used everywhere. */
-  --brand-border: #e7dfd3;
-  --brand-border-strong: #d4c8b6;
+  --brand-border: #e3e3e3;
+  --brand-border-strong: #cecece;
 
   /* --- Radius ---------------------------------------------------------- */
   /* Marketplace UI is squarer than the 2020s SaaS default; softening
      everything to 12px is a large part of why a store reads as generic. */
-  --brand-radius: 2px;
-  --brand-radius-sm: 2px;
-  --brand-radius-lg: 8px;
-  --brand-radius-xl: 12px;
+  --brand-radius: 0px;
+  --brand-radius-sm: 0px;
+  --brand-radius-lg: 0px;
+  --brand-radius-xl: 0px;
   --brand-radius-full: 9999px;
 
   /* --- Type ------------------------------------------------------------ */
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Figtree', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Alexandria', 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
 }
 
 @layer base {

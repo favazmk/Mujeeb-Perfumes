@@ -58,3 +58,7 @@ supabase/.temp
 # themselves live in .agents/skills/ and are tracked; this directory is just the
 # per-tool view of them and is recreated by `npx skills add`.
 .claude/skills/
+
+# Client-supplied source material. This repository is public — brand books,
+# price lists and any other client documents stay out of it.
+/client-assets/
