@@ -1,6 +1,7 @@
-/* Figtree carries the dense, slightly condensed feel that large fashion
-   marketplaces use for product copy; Inter is the metric-compatible fallback. */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+/* Mujeeb Perfumes: Cormorant Garamond gives headings the engraved, editorial
+   feel a fragrance house needs; Figtree keeps product copy dense and legible
+   at catalogue density. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -31,51 +32,51 @@
 :root {
   /* --- Text ------------------------------------------------------------ */
   /* Primary copy. The single most-used colour on the page. */
-  --brand-ink: #282c3f;
+  --brand-ink: #1c1917;
   /* Secondary copy: product names, helper text, metadata. */
-  --brand-muted-ink: #696b79;
+  --brand-muted-ink: #6f675e;
   /* Tertiary: timestamps, counts, disabled labels. */
-  --brand-faint-ink: #94969f;
+  --brand-faint-ink: #a19889;
 
   /* --- Brand ----------------------------------------------------------- */
   /* The one hot accent. Primary CTAs, active states, links. */
-  --brand-primary: #f5325b;
-  --brand-primary-hover: #d81e49;
+  --brand-primary: #8a6a2f;
+  --brand-primary-hover: #6f5323;
   /* Deep neutral used for secondary buttons and the footer. */
-  --brand-secondary: #282c3f;
+  --brand-secondary: #1c1917;
   /* Kept for backwards compatibility with existing components. */
-  --brand-accent: #f5325b;
+  --brand-accent: #c9a227;
 
   /* --- Semantic -------------------------------------------------------- */
   /* Ratings and "in stock". Green reads as approval before it is read at all. */
-  --brand-rating: #14958f;
-  --brand-success: #03a685;
+  --brand-rating: #2f6f5e;
+  --brand-success: #2f6f5e;
   /* Discount percentages and offer copy. */
-  --brand-discount: #ff690f;
+  --brand-discount: #a8571e;
   /* Scarcity: "Only 2 left". Distinct from discount on purpose. */
-  --brand-urgent: #ff5a5a;
-  --brand-danger: #e5343d;
+  --brand-urgent: #b03a2e;
+  --brand-danger: #b03a2e;
 
   /* --- Surfaces -------------------------------------------------------- */
   --brand-surface: #ffffff;
   /* Section backgrounds and inactive chips. */
-  --brand-subtle: #f5f5f6;
-  --brand-muted: #fafafb;
+  --brand-subtle: #f6f2ec;
+  --brand-muted: #fbf8f4;
   /* One hairline value, used everywhere. */
-  --brand-border: #eaeaec;
-  --brand-border-strong: #d4d5d9;
+  --brand-border: #e7dfd3;
+  --brand-border-strong: #d4c8b6;
 
   /* --- Radius ---------------------------------------------------------- */
   /* Marketplace UI is squarer than the 2020s SaaS default; softening
      everything to 12px is a large part of why a store reads as generic. */
-  --brand-radius: 4px;
+  --brand-radius: 2px;
   --brand-radius-sm: 2px;
   --brand-radius-lg: 8px;
   --brand-radius-xl: 12px;
   --brand-radius-full: 9999px;
 
   /* --- Type ------------------------------------------------------------ */
-  --font-heading: 'Figtree', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Figtree', 'Inter', system-ui, sans-serif;
 }
 

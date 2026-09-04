@@ -62,50 +62,58 @@ export interface ThemeConfig {
 }
 
 /**
- * Default theme.
+ * Mujeeb Perfumes theme.
  *
- * The palette follows how high-volume fashion marketplaces are actually built —
- * dense ink text, a single hot accent for actions, green for ratings, orange
- * for discounts, red for scarcity. Those three semantic colours are near
- * universal in commerce, and shoppers read them before they read the words.
+ * A fragrance house reads as luxury through restraint: warm near-black ink,
+ * a single antique-gold action colour, cream section backgrounds and a
+ * near-square radius. The three semantic colours (rating, discount, scarcity)
+ * are kept — shoppers parse them pre-attentively — but tuned to the warm
+ * palette instead of the marketplace neon defaults.
  *
- * Values are placeholders in the branding sense: every one is overridable per
- * client via environment variables or the client repository's theme
- * configuration (AGENTS.md sections 2, 9 and 25).
+ * Every value stays overridable by environment variable so the merchant can
+ * rebrand from /admin/settings without a code change.
  */
 export const defaultThemeConfig: ThemeConfig = {
   brand: {
-    name: process.env.NEXT_PUBLIC_STORE_NAME || "Your Store",
-    tagline: process.env.NEXT_PUBLIC_STORE_TAGLINE || undefined,
+    name: process.env.NEXT_PUBLIC_STORE_NAME || "Mujeeb Perfumes",
+    tagline:
+      process.env.NEXT_PUBLIC_STORE_TAGLINE || "Oud, Attar & Fine Fragrance",
+    logoUrl: process.env.NEXT_PUBLIC_STORE_LOGO_URL || "/logo.svg",
+    faviconUrl: process.env.NEXT_PUBLIC_STORE_ICON_URL || "/logo.svg",
   },
   colors: {
-    primary: process.env.NEXT_PUBLIC_BRAND_PRIMARY_COLOR || "#f5325b",
-    secondary: "#282c3f",
-    accent: process.env.NEXT_PUBLIC_BRAND_PRIMARY_COLOR || "#f5325b",
-    ink: "#282c3f",
-    mutedInk: "#696b79",
+    primary: process.env.NEXT_PUBLIC_BRAND_PRIMARY_COLOR || "#8a6a2f",
+    secondary: "#1c1917",
+    accent: "#c9a227",
+    ink: "#1c1917",
+    mutedInk: "#6f675e",
     surface: "#ffffff",
-    subtle: "#f5f5f6",
-    muted: "#fafafb",
-    border: "#eaeaec",
-    rating: "#14958f",
-    discount: "#ff690f",
-    urgent: "#ff5a5a",
+    subtle: "#f6f2ec",
+    muted: "#fbf8f4",
+    border: "#e7dfd3",
+    rating: "#2f6f5e",
+    discount: "#a8571e",
+    urgent: "#b03a2e",
   },
   typography: {
-    fontHeading: "Figtree, Inter, sans-serif",
+    fontHeading: "'Cormorant Garamond', Georgia, serif",
     fontBody: "Figtree, Inter, sans-serif",
   },
-  navigation: [{ label: "Shop All", href: "/products" }],
+  navigation: [
+    { label: "Men", href: "/products?category=men" },
+    { label: "Women", href: "/products?category=women" },
+    { label: "Unisex", href: "/products?category=unisex" },
+    { label: "Attar & Oud", href: "/products?category=attar-oud" },
+    { label: "Gift Sets", href: "/products?category=gift-sets" },
+    { label: "New Arrivals", href: "/products?sort=newest" },
+  ],
   styling: {
-    // Marketplace UI is squarer than the SaaS default; over-rounding every
-    // surface is a large part of why a storefront reads as a template.
-    borderRadius: "4px",
+    borderRadius: "2px",
     productCardVariant: "luxury",
     headerSticky: true,
     announcementBar: {
-      enabled: false,
-      text: "",
+      enabled: true,
+      text: "Free delivery on orders over AED 200 · Authentic fragrances only",
       link: "/products",
     },
   },

@@ -1,8 +1,8 @@
 {
-  "name": "agency-ecommerce-starter",
+  "name": "mujeeb-perfumes",
   "version": "1.0.0",
   "private": true,
-  "description": "Production-ready, modular, multi-client reusable e-commerce engine",
+  "description": "Mujeeb Perfumes storefront - client instance of the agency e-commerce engine",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

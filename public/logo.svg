@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
-  <text x="0" y="28" font-family="'Outfit', sans-serif" font-size="24" font-weight="bold" fill="#0f172a" letter-spacing="4">
-    AURA
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 44" fill="none" role="img" aria-label="Mujeeb Perfumes">
+  <text x="0" y="26" font-family="'Cormorant Garamond', Georgia, serif" font-size="26" font-weight="600" fill="#1c1917" letter-spacing="3.5">
+    MUJEEB
   </text>
-  <circle cx="95" cy="18" r="3" fill="#10b981" />
-  <text x="106" y="28" font-family="'Outfit', sans-serif" font-size="16" font-weight="300" fill="#64748b" letter-spacing="3">
-    LUXURY
+  <circle cx="132" cy="18" r="2.5" fill="#c9a227" />
+  <text x="144" y="26" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="500" fill="#6f675e" letter-spacing="3">
+    PERFUMES
   </text>
+  <line x1="0" y1="36" x2="118" y2="36" stroke="#c9a227" stroke-width="1" />
 </svg>
