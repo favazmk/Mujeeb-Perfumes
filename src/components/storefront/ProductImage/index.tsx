@@ -49,16 +49,17 @@ function hashString(value: string): number {
 }
 
 /**
- * Warm neutral tiles drawn from the brand palette. Cream through to sand, with
- * the monogram in antique gold or ink depending on how dark the tile is, so
- * every tone keeps the monogram legible.
+ * Placeholder tiles, drawn from the brandbook palette: Paper White through to
+ * Studio Grey, with the monogram in Vinyl Black. The identity is monochrome,
+ * so the tiles are too - the whole catalogue is placeholders until the
+ * photography exists, and any colour here would read as a different brand.
  */
 const PLACEHOLDER_TONES = [
-  { from: "#faf7f2", to: "#f1eae0", ink: "#8a6a2f" },
-  { from: "#f6f2ec", to: "#e9dfd0", ink: "#7a5c28" },
-  { from: "#f4efe6", to: "#e3d7c4", ink: "#6f5323" },
-  { from: "#efe9de", to: "#dccfb9", ink: "#5f4a24" },
-  { from: "#f2ece2", to: "#ded2bd", ink: "#1c1917" },
+  { from: "#ffffff", to: "#f4f4f4", ink: "#0d0d0d" },
+  { from: "#fafafa", to: "#ededed", ink: "#0d0d0d" },
+  { from: "#f4f4f4", to: "#e3e3e3", ink: "#0d0d0d" },
+  { from: "#efefef", to: "#dcdcdc", ink: "#0d0d0d" },
+  { from: "#e9e9e9", to: "#cecece", ink: "#0d0d0d" },
 ] as const;
 
 /** Up to two initials from the product name, e.g. "Merino Overcoat" -> "MO". */
