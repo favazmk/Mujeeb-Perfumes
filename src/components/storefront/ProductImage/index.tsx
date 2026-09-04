@@ -48,6 +48,19 @@ function hashString(value: string): number {
   return Math.abs(hash);
 }
 
+/**
+ * Warm neutral tiles drawn from the brand palette. Cream through to sand, with
+ * the monogram in antique gold or ink depending on how dark the tile is, so
+ * every tone keeps the monogram legible.
+ */
+const PLACEHOLDER_TONES = [
+  { from: "#faf7f2", to: "#f1eae0", ink: "#8a6a2f" },
+  { from: "#f6f2ec", to: "#e9dfd0", ink: "#7a5c28" },
+  { from: "#f4efe6", to: "#e3d7c4", ink: "#6f5323" },
+  { from: "#efe9de", to: "#dccfb9", ink: "#5f4a24" },
+  { from: "#f2ece2", to: "#ded2bd", ink: "#1c1917" },
+] as const;
+
 /** Up to two initials from the product name, e.g. "Merino Overcoat" -> "MO". */
 function initials(value: string): string {
   const words = value
@@ -74,12 +87,16 @@ export function ProductImage({
   const showPlaceholder = !hasSource || failed;
 
   if (showPlaceholder) {
-    // Muted, low-saturation hues so a grid of placeholders stays calm and
-    // reads as part of the design rather than as missing content.
-    const hue = hashString(seed) % 360;
-    const background = `linear-gradient(135deg,
-      hsl(${hue} 24% 94%) 0%,
-      hsl(${(hue + 28) % 360} 20% 88%) 100%)`;
+    // The stock template varies the placeholder hue across the full wheel,
+    // which reads as deliberate on a broad marketplace catalogue. A fragrance
+    // house is the opposite case: the whole grid is placeholders until the
+    // photography exists, and a rainbow of tiles would pull against the gold
+    // and cream palette. So variation is confined to warm tone within the
+    // brand family - the tiles differ enough to be distinguishable, and the
+    // grid still reads as one collection.
+    const step = hashString(seed) % PLACEHOLDER_TONES.length;
+    const tone = PLACEHOLDER_TONES[step];
+    const background = `linear-gradient(135deg, ${tone.from} 0%, ${tone.to} 100%)`;
 
     return (
       <div
@@ -94,7 +111,7 @@ export function ProductImage({
           className={`font-heading font-semibold tracking-[0.18em] select-none ${
             compact ? "text-sm" : "text-2xl sm:text-3xl"
           }`}
-          style={{ color: `hsl(${hue} 22% 42%)`, opacity: 0.55 }}
+          style={{ color: tone.ink, opacity: 0.8 }}
         >
           {initials(seed)}
         </span>
