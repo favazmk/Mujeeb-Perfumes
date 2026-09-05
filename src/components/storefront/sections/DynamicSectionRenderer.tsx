@@ -79,8 +79,12 @@ function HeroSection({ section }: { section: HomepageSection }) {
 
       {/* Hero Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+        {/* Badge, primary and secondary actions below are all defined against
+            the dark hero surface rather than the palette: with a monochrome
+            brand the primary colour equals the hero background, so brand-tinted
+            controls here render black on black. */}
         {content.badge && (
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 border border-brand-primary/20 rounded-full">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest text-white bg-white/10 border border-white/25 rounded-full">
             {content.badge}
           </span>
         )}
@@ -95,7 +99,7 @@ function HeroSection({ section }: { section: HomepageSection }) {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href={content.ctaLink || "/products"}>
-            <Button size="lg" variant="accent" className="w-full sm:w-auto px-8 gap-2 shadow-lg">
+            <Button size="lg" variant="inverse" className="w-full sm:w-auto px-8 gap-2 shadow-lg">
               {content.ctaText || "Shop Collection"} <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
@@ -104,7 +108,7 @@ function HeroSection({ section }: { section: HomepageSection }) {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto text-white border-white/30 hover:bg-white/10 hover:text-white"
+                className="w-full sm:w-auto bg-transparent text-white border-white/40 hover:bg-white/10 hover:text-white"
               >
                 {content.secondaryCtaText}
               </Button>
