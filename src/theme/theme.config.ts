@@ -56,6 +56,13 @@ export interface ThemeConfig {
   typography: {
     fontHeading: string;
     fontBody: string;
+    /**
+     * Typeface for the header wordmark only. A store can run a marketplace UI
+     * typeface for every control and label while keeping its own logotype —
+     * the logo is brand identity, the interface is convention. Omitted, the
+     * wordmark falls back to `fontHeading`.
+     */
+    fontWordmark?: string;
   };
   /**
    * Storefront navigation. Category slugs differ per client, so this belongs
@@ -79,8 +86,17 @@ export interface ThemeConfig {
  *
  * The identity is deliberately monochrome: Vinyl Black #0D0D0D, Paper White,
  * and Brushed Silver #B8B8B8 as an accent only. Black carries the brand, so
- * the primary action colour is black rather than a hot accent, and the radius
- * is zero — "nothing decorative left unexplained".
+ * the primary action colour is black rather than a hot accent.
+ *
+ * INTERFACE CONVENTION (client direction, superseding the brandbook on shape,
+ * type and spacing only): controls follow the mainstream marketplace pattern
+ * rather than the brandbook's square, editorial one. Values were measured off
+ * myntra.com and cross-checked against Myntra's own applique-ui tokens:
+ *   - radius 4px (most common on myntra.com; applique-ui `radius.button: 4px`)
+ *   - Figtree as the interface typeface, on a dense 10/12/14/16 scale
+ *   - weights 400 / 600 / 700, uppercase tracked labels on primary actions
+ * The palette and the logotype are untouched — brand identity stays, interface
+ * grammar changes.
  *
  * Two documented deviations, both for legibility rather than taste:
  *  - Secondary text uses #5a5a5a, not Brushed Silver. #B8B8B8 on white is
@@ -116,8 +132,13 @@ export const defaultThemeConfig: ThemeConfig = {
     urgent: "#a33529",
   },
   typography: {
-    fontHeading: "'Alexandria', 'Space Grotesk', sans-serif",
-    fontBody: "'Space Grotesk', sans-serif",
+    // Interface type follows the marketplace convention (see the note above the
+    // export): Figtree for every control, label and heading.
+    fontHeading: "'Figtree', 'Assistant', system-ui, sans-serif",
+    fontBody: "'Figtree', 'Assistant', system-ui, sans-serif",
+    // The logotype stays on the brandbook typeface. This is the one place
+    // Alexandria still appears, which is what makes it read as a logo.
+    fontWordmark: "'Alexandria', 'Figtree', sans-serif",
   },
   navigation: [
     { label: "Men", href: "/products?category=men" },
@@ -126,8 +147,11 @@ export const defaultThemeConfig: ThemeConfig = {
     { label: "All Fragrances", href: "/products" },
   ],
   styling: {
-    // Zero radius. The brand is built on a fixed grid and square packaging.
-    borderRadius: "0px",
+    // 4px — measured off myntra.com, where it is the most common radius by a
+    // clear margin, and matching applique-ui's own `radius.button: 4px` token.
+    // Softer than the brandbook's square packaging, which is the deliberate
+    // trade: controls read as controls.
+    borderRadius: "4px",
     productCardVariant: "luxury",
     headerSticky: true,
     announcementBar: {

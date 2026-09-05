@@ -1,7 +1,10 @@
-/* Brand typefaces per the brandbook (section 04): Alexandria for the logotype
-   and headlines, Space Grotesk for body copy and fine print. Both are Google
-   Fonts, so they load here rather than being self-hosted. */
-@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Alexandria stays for the logotype (brandbook section 04) — it is the one
+   place the brand typeface appears, which is what makes it read as a logo.
+   Figtree carries the interface: it is the typeface myntra.com actually serves
+   (measured, not assumed), and the marketplace grammar this storefront now
+   follows was calibrated against it. Weights are limited to the four the UI
+   uses — 400 body, 500 metadata, 600 subheads, 700 actions and prices. */
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -67,17 +70,38 @@
   --brand-border-strong: #cecece;
 
   /* --- Radius ---------------------------------------------------------- */
-  /* Marketplace UI is squarer than the 2020s SaaS default; softening
-     everything to 12px is a large part of why a store reads as generic. */
-  --brand-radius: 0px;
-  --brand-radius-sm: 0px;
-  --brand-radius-lg: 0px;
-  --brand-radius-xl: 0px;
+  /* Measured off myntra.com: 4px is the most common radius on the page by a
+     clear margin, 2px next. It matches applique-ui's own `radius.button: 4px`
+     token. Squarer than the SaaS default, softer than the brandbook's zero —
+     enough curvature that a control reads as pressable. */
+  --brand-radius: 4px;
+  --brand-radius-sm: 2px;
+  --brand-radius-lg: 8px;
+  --brand-radius-xl: 12px;
   --brand-radius-full: 9999px;
 
   /* --- Type ------------------------------------------------------------ */
-  --font-heading: 'Alexandria', 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-heading: 'Figtree', 'Assistant', system-ui, sans-serif;
+  --font-body: 'Figtree', 'Assistant', system-ui, sans-serif;
+  /* Logotype only. Never apply this to body copy or controls. */
+  --font-wordmark: 'Alexandria', 'Figtree', sans-serif;
+
+  /* --- Spacing --------------------------------------------------------- */
+  /* applique-ui builds on a 16px vertical grid; myntra.com's own padding
+     clusters on a 10px rhythm with 4/8px for micro-padding. Both reduce to a
+     4px base unit, which is what these steps express. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* --- Elevation ------------------------------------------------------- */
+  /* applique-ui's `shadows.raised`, used verbatim for lifted surfaces. */
+  --shadow-raised: 0 3px 11px 0 rgba(0, 0, 0, 0.21);
 }
 
 @layer base {
@@ -91,8 +115,15 @@
        scroll sideways on a phone. Wide content still scrolls in its own
        overflow-x container. */
     overflow-x: hidden;
-    /* Slightly tighter than the browser default; marketplace copy is dense. */
-    letter-spacing: -0.005em;
+    /* myntra.com runs `letter-spacing: normal` on body copy — Figtree is
+       already tightly fitted, and negative tracking on top of it degrades
+       small-size legibility. The previous -0.005em was for Space Grotesk. */
+    letter-spacing: normal;
+    /* 14px is the dominant size on a Myntra listing page (36 rules against
+       27 at 12px); the browser default of 16px is a size up from the
+       marketplace norm. */
+    font-size: 14px;
+    line-height: 1.45;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -106,6 +137,58 @@
 }
 
 @layer components {
+  /* ------------------------------------------------------------------ */
+  /* Action grammar.                                                     */
+  /*                                                                     */
+  /* The marketplace primary action is a solid, full-width, uppercase     */
+  /* label at weight 700 with ~1px tracking — the "ADD TO BAG" pattern.   */
+  /* Tracking and uppercase are what separate a commerce CTA from a SaaS  */
+  /* button; myntra.com serves `letter-spacing: 1px` on exactly these.    */
+  /* Colour is inherited from the brand tokens, so this stays black here  */
+  /* and needs no change if the palette ever moves.                       */
+  /* ------------------------------------------------------------------ */
+  .btn-action {
+    @apply inline-flex items-center justify-center gap-2 rounded-brand
+           px-6 py-3.5 text-[13px] font-bold uppercase leading-none
+           transition-colors duration-150
+           disabled:cursor-not-allowed disabled:opacity-40;
+    letter-spacing: 1px;
+  }
+
+  /* Primary: solid brand fill. One per view. */
+  .btn-action-primary {
+    @apply btn-action bg-brand-primary text-white hover:bg-brand-primary-hover;
+  }
+
+  /* Secondary: hairline outline on surface. Pairs beside primary. */
+  .btn-action-secondary {
+    @apply btn-action border border-brand-border-strong bg-brand-surface
+           text-brand-ink hover:border-brand-ink;
+  }
+
+  /* Filter and sort chips down the listing rail. Smaller, not uppercase —
+     these are navigation, not commitment. */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-brand border border-brand-border
+           bg-brand-surface px-3 py-1.5 text-xs font-medium text-brand-ink
+           transition-colors hover:border-brand-ink;
+  }
+  .chip-active {
+    @apply chip border-brand-ink bg-brand-ink text-white;
+  }
+
+  /* Price row. Bold current price, struck MRP, then the saving — read in
+     that order, which is the order shoppers scan. */
+  .price-now {
+    @apply text-[15px] font-bold text-brand-ink;
+  }
+  .price-was {
+    @apply text-[13px] font-normal text-brand-faint-ink line-through;
+  }
+  .price-off {
+    @apply text-[13px] font-bold text-brand-discount;
+  }
+
   /* Uppercase micro-label above a heading, used across the storefront. */
   .eyebrow {
     @apply text-[11px] font-bold uppercase tracking-[0.18em] text-brand-primary;
