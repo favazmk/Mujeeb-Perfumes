@@ -62,3 +62,7 @@ supabase/.temp
 # Client-supplied source material. This repository is public — brand books,
 # price lists and any other client documents stay out of it.
 /client-assets/
+
+# Per-machine Claude Code state: which MCP servers this clone has enabled.
+# The launch config beside it IS tracked, since the dev command is shared.
+.claude/settings.local.json
