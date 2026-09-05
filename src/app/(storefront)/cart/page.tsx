@@ -183,7 +183,7 @@ export default function CartPage() {
                         )}
 
                         {!item.inStock && (
-                          <p className="mt-1.5 text-xs font-semibold text-rose-600">
+                          <p className="mt-1.5 text-xs font-semibold text-brand-danger">
                             Only {item.availableStock} available
                           </p>
                         )}
@@ -191,7 +191,7 @@ export default function CartPage() {
 
                       <button
                         onClick={() => removeItem(item.productId, item.variantId)}
-                        className="flex-shrink-0 p-1 text-brand-faint-ink transition-colors hover:text-rose-500"
+                        className="flex-shrink-0 p-1 text-brand-faint-ink transition-colors hover:text-brand-danger"
                         aria-label={`Remove ${item.name} from bag`}
                       >
                         <Trash2 className="h-4 w-4" />
@@ -245,7 +245,7 @@ export default function CartPage() {
             <Link href="/products" className="font-semibold text-brand-primary hover:underline">
               ← Continue shopping
             </Link>
-            <button onClick={clearCart} className="text-brand-faint-ink hover:text-rose-600">
+            <button onClick={clearCart} className="text-brand-faint-ink hover:text-brand-danger">
               Clear bag
             </button>
           </div>
@@ -342,7 +342,7 @@ export default function CartPage() {
                     <span className="font-bold">Code applied: {couponCode}</span>
                     <button
                       onClick={removeCoupon}
-                      className="font-medium text-rose-600 hover:underline"
+                      className="font-medium text-brand-danger hover:underline"
                     >
                       Remove
                     </button>
@@ -369,7 +369,7 @@ export default function CartPage() {
                       </Button>
                     </div>
                     {couponError && (
-                      <p className="text-xs font-medium text-rose-600">{couponError}</p>
+                      <p className="text-xs font-medium text-brand-danger">{couponError}</p>
                     )}
                   </form>
                 )}
@@ -411,7 +411,7 @@ export default function CartPage() {
               href="/wishlist"
               className="flex items-center justify-center gap-2 rounded-brand-xl border border-brand-border bg-white p-3 text-xs font-semibold text-brand-muted-ink shadow-subtle transition-colors hover:border-brand-border-strong hover:text-brand-ink"
             >
-              <Heart className="h-4 w-4 text-rose-400" /> View your wishlist
+              <Heart className="h-4 w-4 text-brand-muted-ink" /> View your wishlist
             </Link>
           </div>
         </div>

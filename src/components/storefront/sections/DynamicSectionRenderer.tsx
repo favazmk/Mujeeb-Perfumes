@@ -259,7 +259,7 @@ function TestimonialsSection({ section }: { section: HomepageSection }) {
               key={i}
               className="rounded-brand-xl bg-white p-8 shadow-subtle border border-brand-border text-left flex flex-col justify-between"
             >
-              <div className="flex text-amber-400 mb-4">
+              <div className="flex text-brand-rating mb-4">
                 {[...Array(rev.rating || 5)].map((_, idx) => (
                   <Star key={idx} className="h-4 w-4 fill-current" />
                 ))}

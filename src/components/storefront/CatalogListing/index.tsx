@@ -116,7 +116,7 @@ export async function CatalogListing({
             {hasActiveFilters && (
               <Link
                 href={basePath}
-                className="inline-block text-xs font-bold text-rose-600 hover:underline"
+                className="inline-block text-xs font-bold text-brand-danger hover:underline"
               >
                 Clear all filters
               </Link>
