@@ -59,6 +59,17 @@
   /* Scarcity: "Only 2 left". Distinct from discount on purpose. */
   --brand-urgent: #a33529;
   --brand-danger: #a33529;
+  /* Caution that is not failure: an expiring coupon, a slow-delivery notice.
+     Muted to sit with the monochrome palette rather than shout over it. */
+  --brand-warning: #8a6a1f;
+
+  /* Tinted panels and hairlines for the two message states. Kept very close to
+     white: on a monochrome storefront a saturated alert panel is the loudest
+     thing on the page, which is the opposite of the brandbook's intent. */
+  --brand-danger-surface: #fbf3f2;
+  --brand-danger-border: #ecd8d5;
+  --brand-warning-surface: #faf6ec;
+  --brand-warning-border: #e8dcc2;
 
   /* --- Surfaces -------------------------------------------------------- */
   --brand-surface: #ffffff;

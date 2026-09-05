@@ -267,7 +267,7 @@ export function ProductReviews({
           </div>
 
           {formError && (
-            <p className="rounded-brand border border-rose-200 bg-rose-50 p-2.5 text-xs font-semibold text-rose-700">
+            <p className="rounded-brand border border-brand-danger-border bg-brand-danger-surface p-2.5 text-xs font-semibold text-brand-danger">
               {formError}
             </p>
           )}

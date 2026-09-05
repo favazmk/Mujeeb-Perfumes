@@ -303,7 +303,7 @@ export function ProductDetailClient({ product, stats, commerce }: ProductDetailC
                     <span className="text-lg text-brand-faint-ink line-through">
                       {formatPrice(pricing.compareAtPrice!)}
                     </span>
-                    <span className="text-sm font-bold text-rose-600">
+                    <span className="text-sm font-bold text-brand-danger">
                       {pricing.discountPercent}% off
                     </span>
                   </>
@@ -323,8 +323,8 @@ export function ProductDetailClient({ product, stats, commerce }: ProductDetailC
                 <p
                   className={`mt-3 inline-flex items-center rounded-brand-sm px-2.5 py-1 text-xs font-bold ${
                     scarcity.tone === "danger"
-                      ? "bg-rose-50 text-rose-700 ring-1 ring-rose-200"
-                      : "bg-amber-50 text-amber-700 ring-1 ring-amber-200"
+                      ? "bg-brand-danger-surface text-brand-danger ring-1 ring-brand-danger-border"
+                      : "bg-brand-warning-surface text-brand-warning ring-1 ring-brand-warning-border"
                   }`}
                 >
                   {scarcity.message}
@@ -481,7 +481,7 @@ export function ProductDetailClient({ product, stats, commerce }: ProductDetailC
                     aria-pressed={isInWishlist(product.id)}
                   >
                     <Heart
-                      className={`h-5 w-5 ${isInWishlist(product.id) ? "fill-brand-ink" : ""}`}
+                      className={`h-5 w-5 ${isInWishlist(product.id) ? "fill-brand-primary" : ""}`}
                     />
                   </button>
                 </div>

@@ -338,7 +338,7 @@ function NewsletterSection({ section }: { section: HomepageSection }) {
         ) : (
           <>
           {error && (
-            <p role="alert" className="mt-4 text-xs font-medium text-rose-400">
+            <p role="alert" className="mt-4 text-xs font-medium text-brand-danger">
               {error}
             </p>
           )}

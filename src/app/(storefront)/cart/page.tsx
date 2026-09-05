@@ -117,7 +117,7 @@ export default function CartPage() {
       {!calculatedCart.isValid && calculatedCart.validationErrors.length > 0 && (
         <div
           role="alert"
-          className="mb-6 rounded-brand border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900"
+          className="mb-6 rounded-brand border border-brand-warning-border bg-brand-warning-surface p-4 text-sm text-brand-warning"
         >
           <p className="font-semibold">Please review your bag before checking out:</p>
           <ul className="mt-1.5 list-inside list-disc space-y-0.5 text-xs">
